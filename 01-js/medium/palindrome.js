@@ -4,7 +4,31 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  function isAlphanumeric(str) {
+    // Regular expression to match only alphanumeric characters
+    var alphanumericRegex = /^\w+$/;
+  
+    // Test if the entire string matches the alphanumeric regex
+    return alphanumericRegex.test(str);
+  }
+  
+  let str_final= str.toLowerCase();
+  let reverse_str="";
+  let final_str="";
+
+  // 
+  for(let i = 0; i < str.length; i++) {
+    if (isAlphanumeric(str_final[i])) {
+      final_str += str_final[i];
+    } else {
+      final_str += '';
+    }
+  }
+  for (let i = final_str.length-1; i>=0; i--){
+    reverse_str+=final_str[i]
+  }
+  return reverse_str==final_str;
+  
 }
 
 module.exports = isPalindrome;
